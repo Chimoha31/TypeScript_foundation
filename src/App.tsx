@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Todo } from "../src/Todo";
-import "./App.css";
 import { TodoType } from '../src/types/todo';
+import { Text } from '../src/Text';
+import "./App.css";
 
 
 
@@ -21,6 +22,7 @@ const App = () => {
       {todos.map((todo) => (
         <Todo key={todo.id} title={todo.title} userId={todo.userId} completed={todo.completed}></Todo>
       ))}
+      <Text color="red" fontSize="20px"></Text>
     </div>
   );
 };
