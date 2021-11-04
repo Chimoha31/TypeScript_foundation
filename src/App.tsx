@@ -1,17 +1,24 @@
-// import React from 'react';
-import { Practice1 } from '../src/practices/Practice1';
-import { Practice2 } from '../src/practices/Practice2';
-import { Practice3 } from '../src/practices/Practice3';
-import { Practice4 } from '../src/practices/Practice4';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Todo } from '../src/Todo';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [todos, setTodos] = useState<any>([]);
+
+  const onClickFetchData = () => {
+    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
+      setTodos(res.data);
+      // console.log(res.data);
+    });
+  };
+
   return (
     <div className="App">
-     <Practice1></Practice1>
-     <Practice2></Practice2>
-     <Practice3></Practice3>
-     <Practice4></Practice4>
+     <button onClick={onClickFetchData}>データ取得</button>
+     {todos.map((todo) => (
+       <Todo title={todo.title} userid={todo.userid}></Todo>
+     ))}
     </div>
   );
 }
