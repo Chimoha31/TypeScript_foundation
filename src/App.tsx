@@ -3,8 +3,14 @@ import axios from "axios";
 import { Todo } from "../src/Todo";
 import { TodoType } from '../src/types/todo';
 import { Text } from '../src/Text';
+import { UserProfile } from '../src/UserPropfile';
+import { User } from '../src/types/user';
 import "./App.css";
 
+const user: User = {
+  name: "Chiho",
+  hobbies: ["Piano", "Hiking"],
+}
 
 
 const App = () => {
@@ -18,6 +24,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <UserProfile user={user}></UserProfile>
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) => (
         <Todo key={todo.id} title={todo.title} userId={todo.userId} completed={todo.completed}></Todo>

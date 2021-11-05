@@ -14,3 +14,6 @@ export const Text: VFC<Style> = (props) => {
     </div>
   );
 };
+
+
+
