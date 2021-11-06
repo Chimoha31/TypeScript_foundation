@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { UserCard } from '../src/components/UserCard';
 
-function App() {
+const user = {
+  id: 3,
+  name: "Chiho",
+  email: "1234@gmail.com",
+  address: "vanvouver 123 8th Ave",
+};
+
+const style = {
+  border: "solid 1px #ccc",
+  borderRadius: "8px",
+  padding: "0 16px",
+  margin: "8px",
+};
+
+ export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={style} className="App">
+      <UserCard user={user}/>
     </div>
   );
-}
+};
 
-export default App;
